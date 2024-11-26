@@ -48,6 +48,16 @@ def check_missing_values(df,type):
     print(f"\nMissing Values for {type} dataset:")
     print(df.isnull().sum())
 
+def check_duplicates(df,type):
+
+    """
+    Check for duplicate rows in the dataset.
+
+    """
+
+    print(f"\nDuplicate Rows for {type} dataset:")
+    print(df.duplicated().sum())
+
 def analyze_categorical_features(df, categorical_columns,type):
 
     """
@@ -119,6 +129,9 @@ def perform_eda_text(file_path):
     # Check for missing values
     check_missing_values(df,"text")
 
+    # Check for duplicate rows
+    check_duplicates(df,"text")
+
     # Define categorical and numerical columns
     categorical_columns = ["type", "human_type", "emotion_label"]
 
@@ -151,6 +164,9 @@ def perform_eda_audio(file_path):
 
     # Check for missing values
     check_missing_values(df,"audio")
+
+    # Check for duplicate rows
+    check_duplicates(df,"audio")
 
     # Define categorical and numerical columns
     categorical_columns = ['emotion', 'type', 'human_type']
