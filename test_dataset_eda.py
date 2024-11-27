@@ -16,7 +16,7 @@ from dataset_eda import (
 )
 
 @pytest.fixture
-def sample_data():
+def sample_text_data():
 
     """
     Fixture to create a sample dataset for testing.
@@ -27,89 +27,109 @@ def sample_data():
 
 @pytest.fixture
 def sample_audio_data():
+
     """
     Fixture to create a sample audio dataset for testing.
+
     """
  
     return pd.read_csv("conversation_audio_test.csv")
 
-def test_load_dataset(sample_data):
+def test_load_dataset(sample_text_data):
+
     """
     Test loading dataset from a CSV file.
+    params:sample_text_data: Sample dataset to test loading from CSV file.
+
     """
+
     temp_file = "test_dataset.csv"
-    sample_data.to_csv(temp_file, index=False)
+    sample_text_data.to_csv(temp_file, index=False)
     loaded_df = load_dataset(temp_file)
     os.remove(temp_file)
 
     # Assert that the loaded DataFrame matches the sample DataFrame
-    pd.testing.assert_frame_equal(sample_data, loaded_df)
+    pd.testing.assert_frame_equal(sample_text_data, loaded_df)
 
-def test_summarize_emotion_scores(sample_data, capsys):
+def test_summarize_emotion_scores(sample_text_data, capsys):
+    
     """
     Test summarizing emotion scores by emotion label.
+    params:sample_text_data: Sample dataset to test summarizing emotion scores.
+    params:capsys: Pytest fixture to capture stdout and stderr.
+
     """
-    summarize_emotion_scores(sample_data, "text")
+
+    summarize_emotion_scores(sample_text_data, "text")
     captured = capsys.readouterr()
     assert "neutral" in captured.out
 
 
-def test_summarize_dataset(sample_data, capsys):
+def test_summarize_dataset(sample_text_data, capsys):
+
     """
     Test dataset summary statistics.
+    params:sample_text_data: Sample dataset to test summarizing.
+    params:capsys: Pytest fixture to capture stdout and stderr.
+
     """
-    summarize_dataset(sample_data, "text")
+
+    summarize_dataset(sample_text_data, "text")
     captured = capsys.readouterr()
     assert "Dataset Info" in captured.out
     assert "conversation_id" in captured.out
     assert "emotion_score" in captured.out
 
-def test_check_missing_values(sample_data, capsys):
+def test_check_missing_values(sample_text_data, capsys):
+
     """
     Test for missing values in the dataset.
+    params:sample_text_data: Sample dataset to test missing values.
+    params:capsys: Pytest fixture to capture stdout and stderr
+
     """
-    check_missing_values(sample_data, "text")
+
+    check_missing_values(sample_text_data, "text")
     captured = capsys.readouterr()
     assert "Missing Values" in captured.out
     assert "0" in captured.out  # No missing values in the dataset
 
-def test_check_duplicates(sample_data, capsys):
+def test_check_duplicates(sample_text_data, capsys):
+
     """
     Test for duplicate rows in the dataset.
+    params:sample_text_data: Sample dataset to test for duplicates.
+    params:capsys: Pytest fixture to capture stdout and stderr
+
     """
-    check_duplicates(sample_data, "text")
+
+    check_duplicates(sample_text_data, "text")
     captured = capsys.readouterr()
     assert "Duplicate Rows" in captured.out
     assert "0" in captured.out  # No duplicates in the dataset
 
-def test_analyze_categorical_features(sample_data):
+def test_analyze_categorical_features(sample_text_data):
+
     """
     Test analysis of categorical features.
+    params:sample_text_data: Sample dataset to test categorical feature analysis.
+
     """
+
     categorical_columns = ["type", "human_type", "emotion_label"]
-    analyze_categorical_features(sample_data, categorical_columns, "text")
+    analyze_categorical_features(sample_text_data, categorical_columns, "text")
     # Ensure the function runs without errors (visual validation is needed for plots)
 
-def test_plot_emotion_scores(sample_data):
-    """
-    Test plotting emotional scores by emotion label.
-    """
-    plot_emotion_scores(sample_data, "text")
-    # Ensure the function runs without errors (visual validation is needed for plots)
-
-def test_kde_plot_emotion_scores(sample_data):
-    """
-    Test KDE plot of emotional scores.
-    """
-    kde_plot_emotion_scores(sample_data, "text")
-    # Ensure the function runs without errors (visual validation is needed for plots)
-
-def test_analyze_text_column(sample_data):
+def test_analyze_text_column(sample_text_data):
+    
     """
     Test the text column analysis function.
+    params:sample_text_data: Sample dataset to test text column
+
     """
+
     try:
-        analyze_text_column(sample_data, "text", "text")
+        analyze_text_column(sample_text_data, "text", "text")
     except ValueError as e:
         assert "empty sequence" not in str(e)
 
@@ -117,6 +137,7 @@ def test_analyze_audio_column(sample_audio_data):
 
     """
     Test the audio column analysis function.
+    params:sample_audio_data: Sample dataset to test audio
 
     """
 

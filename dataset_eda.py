@@ -13,6 +13,7 @@ def load_dataset(file_path):
 
     """
     Load the dataset into a Pandas DataFrame.
+    param file_path: Path to the dataset file.
 
     """
 
@@ -23,7 +24,9 @@ def summarize_emotion_scores(df,type):
 
     """
     Group by emotion label and calculate summary statistics for emotional scores.
-    
+    param df: DataFrame containing the dataset.
+    param type: Dataset type for labeling in prints.
+
     """
 
     grouped = df.groupby("emotion_label")["emotion_score"].describe()
@@ -35,7 +38,9 @@ def summarize_dataset(df,type):
 
     """
     Print summary statistics and basic information about the dataset.
-
+    param df: DataFrame containing the dataset.
+    param type: Dataset type for labeling in prints.
+    
     """
 
     print(f"Dataset Info for {type} dataset:")
@@ -49,6 +54,8 @@ def check_missing_values(df,type):
 
     """
     Check for missing values in the dataset.
+    param df: DataFrame containing the dataset.
+    param type: Dataset type for labeling in prints.
 
     """
 
@@ -59,6 +66,8 @@ def check_duplicates(df,type):
 
     """
     Check for duplicate rows in the dataset.
+    param df: DataFrame containing the dataset.
+    param type: Dataset type for labeling in prints.
 
     """
 
@@ -69,6 +78,9 @@ def analyze_categorical_features(df, categorical_columns,type):
 
     """
     Analyze and plot the distribution of categorical features.
+    param df: DataFrame containing the dataset.
+    param categorical_columns: List of categorical columns to analyze.
+    param type: Dataset type for labeling in plots and prints.
 
     """
 
@@ -85,7 +97,9 @@ def plot_emotion_scores(df,type):
 
     """
     Visualize the distribution of emotional scores by emotion label.
-    
+    param df: DataFrame containing the dataset.
+    param type: Dataset type for labeling in plots and prints.
+
     """
 
     plt.figure(figsize=(12, 6))
@@ -104,6 +118,8 @@ def kde_plot_emotion_scores(df,type):
 
     """
     Plot KDE of emotional scores for each emotion label.
+    param df: DataFrame containing the dataset.
+    param type: Dataset type for labeling in plots and prints.
     
     """
 
@@ -245,7 +261,8 @@ def perform_eda_text(file_path):
 
     """
     Perform EDA on the conversation dataset.
-    
+    param file_path: Path to the dataset file.
+
     """
 
     # Load dataset
@@ -282,7 +299,8 @@ def perform_eda_audio(file_path):
 
     """
     Perform EDA on the audio dataset.
-    
+    param file_path: Path to the dataset file.
+
     """
 
     # Load dataset
