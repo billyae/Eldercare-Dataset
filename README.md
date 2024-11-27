@@ -213,9 +213,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 **test_dataset_eda.py**: Unit test Code.   
 
-**assets**: Assets need to be used in the readme.     
+**assets**: Assets need to be used in the readme.      
 
-**requirements.txt**: Requirments.txt for eda and unit test Code.   
+**requirements.txt**: Requirments.txt for eda and unit test Code.    
+
+## Run the code
+
+```pip install -r requirements.txt```   
+
+```python dataset_eda.py```     
+
+## Unit test 
+
+```pytest```
 
 
 
