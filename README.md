@@ -91,33 +91,33 @@ There is no duplicate row in the Conversation text Dataset.
 
 **Type feature:**      
 
-![alt text](Figure_1.png)
+![alt text](assets/Figure_1.png)
 
 Based on the EDA results, there is 2792 entries collected from interviews and 288 entries collected from talkings as a complement. The proportion of the entries collected from an interview is 91% and the proportion of the entries collected from an interview is 9%. It shows the most of my dataset is collected from interview but I choose to add some talkings as implement to make this dataset containing some data in health and eldercare settings and add its diversity.  
 
 **Human Type:**     
       
-![alt text](Figure_2.png)
+![alt text](assets/Figure_2.png)
 
 Based on the EDA results, there is 1556 entries collected from interviews in which the speaker is a therapist and 1236 entries collected from interviews in which the speaker is a client. The proportion of the entries collected from an interview in which the speaker is a therapist is 56% and client is 44%. It shows the text data from client and therapist is more balanced and due to the different speaking pattern between client and therapist, based on the this label, the model handling this data could get more useful information to learn the pattern of elder conversation text data.   
 
 **Emotion_label:**   
          
-![alt text](Figure_3.png)
+![alt text](assets/Figure_3.png)
 
 Based on the EDA results, there is 2067 entries in which the emotion of the text is neutral, 241 are surprise, 225 are joy, 173 are fear, 162 are disgust, 153 are sadness and 59 are anger. Though there is a variety of the emotion status in this dataset, the majority is the neutral, it might because elders have gentle personality and their words typically are neutral in nature. 
 
 #### Numerical Feature Analysis
 **Emotional Score:**   
         
-![alt text](Figure_4.png)
-![alt text](Figure_5.png)
+![alt text](assets/Figure_4.png)
+![alt text](assets/Figure_5.png)
 
 Based on the EDA results, we could see that for the texts with neutral, surprise and joy emotions, their emotions are highly related to the labled emotion status because the emotional_score is high in average. But for the texts with disgust, fear and anger emotions, their emotions are not highly related to the labeled emotion status because the emotional_score is comparably low. The model to be trained could use this value to judge if the emotion is intense of this status and this data could be used to learn the detailed emotional pattern. 
 
 #### Text Analysis
 
-![alt text](Figure_9.png)
+![alt text](assets/Figure_9.png)
 
 To know what words elders are likely to say in elder care settings and health settings. I counted the top30 common words (length>=8 to prevent modal particles) in all my words of my conversation text dataset. From the result of EDA, some specific words such as that-that, what-what might reflect the pattern of talking of elders. And there are some other words which are related to health care settings such as drinking, cigarettte, physical, problems, lifestyle, diabetes. And those words might be some common words in elder care settings and are helpful for training a AI chatbot targeted at healthcare problem.
 
@@ -137,25 +137,25 @@ THere is no duplicate row in the Conversation audio Dataset.
 
 **Type Feature:**    
        
-![alt text](Figure_7.png)
+![alt text](assets/Figure_7.png)
 
 Based on the EDA results, there is 1734 entries collected from interviews and 214 entries collected from talkings as a complement. The proportion of the entries collected from an interview is 89% and the proportion of the entries collected from an interview is 11%. It shows the most of my dataset is collected from interview but I choose to add some talkings as implement to make this dataset containing some data in health and eldercare settings and add its diversity. The same as the conversation text dataset. 60
  
 **Human Type:**    
           
-![alt text](Figure_8.png)
+![alt text](assets/Figure_8.png)
 
 Based on the EDA results, there is 1053 entries collected from interviews in which the speaker is a therapist and 681 entries collected from interviews in which the speaker is a client. The proportion of the entries collected from an interview in which the speaker is a therapist is 60% and client is 40%. It shows the audio data from client and therapist is more balanced and due to the different speaking pattern between client and therapist, based on the this label, the model handling this data could get more useful information to learn the pattern of elder conversation audio data.   
 
 **Emotional Label:**    
         
-![alt text](Figure_6.png)
+![alt text](assets/Figure_9.png)
 
 Based on the EDA results, there is 1605 entries in which the emotion of the text is neutral, 169 are sad, 121 are happy, 14 are disgust, 4 are surprised and 2 are angry. Though there is a variety of the emotion status in this dataset, the majority is the neutral and the proportion of neutral is as high as 82%, it might because elders voices sound to be neutral in nature, which might be a pattern to recognize the voice of elders and could be a feature to be integrated in synthetic elder voice to simulate elder's emotion.
 
 **Audio Data Analysis:**    
        
-![alt text](Figure_10.png)    
+![alt text](assets/Figure_10.png)
 
 **Dominant Frequency Range**: This histogram shows the distribution of mean frequency of each audio file. Based on this histogram. The majority of the mean frequencies lie in the range of 2000Hz to 3500Hz, which corresponds to a typical range of human speech and is consistent with the focus on elder conversations.        
       
@@ -198,6 +198,24 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Files
+
+**conversation_audio.csv**: The final conversation audio dataset.   
+     
+**conversation_audio_test.csv**: The conversation audio dataset for unit test.    
+    
+**conversation_text.csv**: The final conversation text dataset.     
+
+**conversation_text_test.csv**: The conversation text dataset for unit test.   
+
+**dataset_eda.py**: Code for EDA.    
+
+**test_dataset_eda.py**: Unit test Code.   
+
+**assets**: Assets need to be used in the readme.     
+
+**requirements.txt**: Requirments.txt for eda and unit test Code.   
 
 
 
