@@ -12,3 +12,4 @@ statsmodels==0.14.0
 transformers==4.31.0
 pytest==6.2.5
 nltk==3.6.5
+librosa==0.10.2.post1
