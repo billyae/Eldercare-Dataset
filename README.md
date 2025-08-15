@@ -167,7 +167,7 @@ Based on the EDA results, there is 1605 entries in which the emotion of the text
     
 ## Data Soucring
 
-The Data Sourcing public Repo is here: [https://github.com/billyae/AIPI510-Final-Project/ ](https://github.com/billyae/Data-Crawling-Elder-Dataset)   
+The Data Sourcing public Repo is here: [https://github.com/billyae/Data-Crawling-Elder-Dataset ](https://github.com/billyae/Data-Crawling-Elder-Dataset)   
 
 ## Bias
 
